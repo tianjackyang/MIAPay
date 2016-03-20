@@ -122,10 +122,10 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  # s.frameworks = "SomeFramework", "AnotherFramework"
+  s.frameworks = "AlipaySDK", "CoreMotion", "CFNetwork", "Foundation", "UIKit", "CoreGraphics", "CoreText", "QuartzCore", "CoreTelephony", "SystemConfiguration"
 
   # s.library   = "iconv"
-  # s.libraries = "iconv", "xml2"
+  s.libraries = "libc++", "libz"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
