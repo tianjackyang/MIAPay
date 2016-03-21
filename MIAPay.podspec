@@ -44,7 +44,7 @@ Pod::Spec.new do |s|
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
-  #  Specify the authors of the library, with email addresses. Email addresses
+  #  Specify the authors of the library, with email address. Email addresses
   #  of the authors are extracted from the SCM log. E.g. $ git log. CocoaPods also
   #  accepts just a name if you'd rather not provide an email address.
   #
@@ -90,11 +90,10 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  # s.source_files  = "Pod", "Pod/**/*.{h,m}"
+  s.source_files  = "Pod", "Pod/MIAPayHeader.h"
   # s.exclude_files = "Classes/Exclude"
 
-  # s.public_header_files = "Pod/MIAPay.h"
-
+  s.public_header_files = "Pod/MIAPayHeader.h"
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -109,7 +108,6 @@ Pod::Spec.new do |s|
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
 
-
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
   #  Link your library with frameworks, or libraries. Libraries do not include
@@ -117,11 +115,11 @@ Pod::Spec.new do |s|
   #
 
   # s.framework  = "SomeFramework"
-  s.frameworks = "AlipaySDK", "CoreMotion", "CFNetwork", "Foundation", "UIKit", "CoreGraphics", "CoreText", "QuartzCore", "CoreTelephony", "SystemConfiguration"
+  s.frameworks =  "CoreMotion", "CFNetwork", "Foundation", "UIKit", "CoreGraphics", "CoreText", "QuartzCore", "CoreTelephony", "SystemConfiguration"
+
+  s.libraries = "c++", "z"
 
   # s.library   = "iconv"
-  s.libraries = "c++", "z", "ssl", "crypto"
-
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
   #
@@ -129,29 +127,32 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
+  s.requires_arc = true
 
-  # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
  
   s.subspec 'openssl' do |ss|
-    ss.source_files = 'Pod/openssl/**/*.{h,m}' 
+    ss.source_files = 'Pod/openssl/**/*.{h}'
+    ss.public_header_files = 'Pod/openssl/*.h'
+    ss.header_dir = 'openssl'
   end
 
   s.subspec 'Util' do |ss|
     ss.dependency "MIAPay/openssl"
-    ss.source_files = 'Pod/Util/**/*.{h,m}'
-  end
-
-  s.subspec 'Lib' do |ss|
-    ss.source_files = 'Pod/Lib/*'
-  end
-
-  s.subspec 'Framework' do |ss|
-    ss.source_files = 'Pod/Framework/**/*'
+    ss.source_files = 'Pod/Util/**/*.{h}'
+    ss.public_header_files = 'Pod/Util/*.h'
   end
 
   s.subspec 'Core' do |ss|
+    ss.dependency "MIAPay/Util"
+    ss.vendored_frameworks = 'Pod/Framework/AlipaySDK.framework'
     ss.source_files = 'Pod/Core/**/*.{h,m}'
+    ss.public_header_files = 'Pod/Core/**/*.{h}'
+    ss.vendored_libraries = "Pod/Lib/libssl.a", "Pod/Lib/libcrypto.a"
+    ss.xcconfig = { 
+                "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/MIAPay/Framework/",
+                "HEADER_SEARCH_PATHS" => "$($(PODS_ROOT))/MIAPay",
+                "LIBRARY_SEARCH_PATHS" => "$(PODS_ROOT)/MIAPay/Lib/"
+               }
   end
 end
