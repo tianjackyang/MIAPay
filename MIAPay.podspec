@@ -125,7 +125,7 @@ Pod::Spec.new do |s|
   s.frameworks = "AlipaySDK", "CoreMotion", "CFNetwork", "Foundation", "UIKit", "CoreGraphics", "CoreText", "QuartzCore", "CoreTelephony", "SystemConfiguration"
 
   # s.library   = "iconv"
-  s.libraries = "libc++", "libz", "libssl", "libcrypto"
+  s.libraries = "libc++", "libz"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
