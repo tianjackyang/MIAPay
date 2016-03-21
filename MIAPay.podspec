@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MIAPay"
-  s.version      = "0.0.4"
+  s.version      = "0.0.5"
   s.summary      = "use for pay."
 
   # This description is used to generate tags and improve search results.
@@ -136,6 +136,8 @@ Pod::Spec.new do |s|
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
+ 
+  s.dependency "MIAPay/Framework"
   
   s.subspec 'openssl' do |ss|
     ss.source_files = 'Pod/openssl/**/*.{h,m}' 
