@@ -114,9 +114,6 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  s.vendored_frameworks = 'Pod/Framework/AlipaySDK.framework'
-  s.vendored_libraries = "Pod/Lib/libssl.a", "Pod/Lib/libcrypto.a"
-
   # s.xcconfig = { 
   #               "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/MIAPay/Frameworks/",
   #               "HEADER_SEARCH_PATHS" => "$(PODS_ROOT)/MIAPay/",
@@ -155,5 +152,7 @@ Pod::Spec.new do |s|
     ss.dependency "MIAPay/Util"
     ss.source_files = 'Pod/Core/**/*.{h,m}'
     ss.public_header_files = 'Pod/Core/**/*.{h}'
+    ss.vendored_frameworks = 'Pod/Framework/AlipaySDK.framework'
+    ss.vendored_libraries = "Pod/Lib/libssl.a", "Pod/Lib/libcrypto.a"
   end
 end
