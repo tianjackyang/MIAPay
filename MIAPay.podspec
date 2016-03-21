@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MIAPay"
-  s.version      = "0.0.3"
+  s.version      = "0.0.4"
   s.summary      = "use for pay."
 
   # This description is used to generate tags and improve search results.
@@ -123,7 +123,7 @@ Pod::Spec.new do |s|
   s.frameworks = "AlipaySDK", "CoreMotion", "CFNetwork", "Foundation", "UIKit", "CoreGraphics", "CoreText", "QuartzCore", "CoreTelephony", "SystemConfiguration"
 
   # s.library   = "iconv"
-  s.libraries = "libc++", "libz", "libssl.a", "libcrypto"
+  s.libraries = "c++", "z", "ssl", "crypto"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -142,6 +142,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Util' do |ss|
+    ss.dependency "MIAPay/openssl"
     ss.source_files = 'Pod/Util/**/*.{h,m}'
   end
 
