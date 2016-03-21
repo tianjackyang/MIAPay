@@ -147,7 +147,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Util' do |ss|
     ss.dependency "MIAPay/openssl"
-    ss.source_files = 'Pod/Util/**/*.{h}'
+    ss.source_files = 'Pod/Util/**/*.{h,m}'
     ss.public_header_files = 'Pod/Util/*.h'
   end
 
