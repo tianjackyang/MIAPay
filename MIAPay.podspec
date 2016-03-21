@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MIAPay"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "use for pay."
 
   # This description is used to generate tags and improve search results.
