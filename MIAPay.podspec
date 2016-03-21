@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MIAPay"
-  s.version      = "0.0.6"
+  s.version      = "0.0.8"
   s.summary      = "use for pay."
 
   # This description is used to generate tags and improve search results.
@@ -93,7 +93,7 @@ Pod::Spec.new do |s|
   s.source_files  = "Pod", "Pod/**/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
 
-  s.public_header_files = "Pod/MIAPay.h"
+  # s.public_header_files = "Pod/MIAPay.h"
 
 
   # ――― Resources ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -105,9 +105,6 @@ Pod::Spec.new do |s|
   #
 
   s.resource  = "Pod/Resource/AlipaySDK.bundle"
-  s.resource  = "Pod/Framework/AlipaySDK.framework"
-  s.resource  = "Pod/Lib/libssl.a"
-  s.resource  = "Pod/Lib/libcrypto.a"
   # s.resources = "Resources/*.png"
 
   # s.preserve_paths = "FilesToSave", "MoreFilesToSave"
@@ -146,6 +143,14 @@ Pod::Spec.new do |s|
   s.subspec 'Util' do |ss|
     ss.dependency "MIAPay/openssl"
     ss.source_files = 'Pod/Util/**/*.{h,m}'
+  end
+
+  s.subspec 'Lib' do |ss|
+    ss.source_files = 'Pod/Lib/*'
+  end
+
+  s.subspec 'Framework' do |ss|
+    ss.source_files = 'Pod/Framework/*'
   end
 
 end
