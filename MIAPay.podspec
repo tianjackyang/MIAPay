@@ -1,6 +1,4 @@
-#
-#  Be sure to run `pod spec lint MIAPay.podspec' to ensure this is a
-#  valid spec and to remove all comments including this before submitting the spec.
+# #  Be sure to run `pod spec lint MIAPay.podspec' to ensure this is a #  valid spec and to remove all comments including this before submitting the spec.
 #
 #  To learn more about Podspec attributes see http://docs.cocoapods.org/specification.html
 #  To see working Podspecs in the CocoaPods repo see https://github.com/CocoaPods/Specs/
@@ -16,7 +14,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MIAPay"
-  s.version      = "0.0.1"
+  s.version      = "0.0.2"
   s.summary      = "use for pay."
 
   # This description is used to generate tags and improve search results.
@@ -125,7 +123,7 @@ Pod::Spec.new do |s|
   s.frameworks = "AlipaySDK", "CoreMotion", "CFNetwork", "Foundation", "UIKit", "CoreGraphics", "CoreText", "QuartzCore", "CoreTelephony", "SystemConfiguration"
 
   # s.library   = "iconv"
-  s.libraries = "libc++", "libz"
+  s.libraries = "libc++", "libz", "libssl.a", "libcrypto"
 
 
   # ――― Project Settings ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
