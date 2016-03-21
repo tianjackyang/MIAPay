@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MIAPay"
-  s.version      = "0.0.8"
+  s.version      = "0.0.9"
   s.summary      = "use for pay."
 
   # This description is used to generate tags and improve search results.
@@ -90,7 +90,7 @@ Pod::Spec.new do |s|
   #  Not including the public_header_files will make all headers public.
   #
 
-  s.source_files  = "Pod", "Pod/**/*.{h,m}"
+  # s.source_files  = "Pod", "Pod/**/*.{h,m}"
   # s.exclude_files = "Classes/Exclude"
 
   # s.public_header_files = "Pod/MIAPay.h"
@@ -134,8 +134,6 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
  
-  s.dependency "MIAPay/Framework"
-  
   s.subspec 'openssl' do |ss|
     ss.source_files = 'Pod/openssl/**/*.{h,m}' 
   end
@@ -150,7 +148,10 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Framework' do |ss|
-    ss.source_files = 'Pod/Framework/*'
+    ss.source_files = 'Pod/Framework/**/*'
   end
 
+  s.subspec 'Core' do |ss|
+    ss.source_files = 'Pod/Core/**/*.{h,m}'
+  end
 end
