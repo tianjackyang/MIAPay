@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "MIAPay"
-  s.version      = "0.1.9"
+  s.version      = "15.0.8"
   s.summary      = "use for pay."
 
   # This description is used to generate tags and improve search results.
@@ -114,6 +114,14 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
+  s.vendored_frameworks = 'Pod/Framework/AlipaySDK.framework'
+  s.vendored_libraries = "Pod/Lib/libssl.a", "Pod/Lib/libcrypto.a"
+
+  # s.xcconfig = { 
+  #               "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/MIAPay/Frameworks/",
+  #               "HEADER_SEARCH_PATHS" => "$(PODS_ROOT)/MIAPay/",
+  #               "LIBRARY_SEARCH_PATHS" => "$(PODS_ROOT)/MIAPay/Lib/"
+  #              }
   # s.framework  = "SomeFramework"
   s.frameworks =  "CoreMotion", "CFNetwork", "Foundation", "UIKit", "CoreGraphics", "CoreText", "QuartzCore", "CoreTelephony", "SystemConfiguration"
 
@@ -145,14 +153,7 @@ Pod::Spec.new do |s|
 
   s.subspec 'Core' do |ss|
     ss.dependency "MIAPay/Util"
-    ss.vendored_frameworks = 'Pod/Framework/AlipaySDK.framework'
     ss.source_files = 'Pod/Core/**/*.{h,m}'
     ss.public_header_files = 'Pod/Core/**/*.{h}'
-    ss.vendored_libraries = "Pod/Lib/libssl.a", "Pod/Lib/libcrypto.a"
-    ss.xcconfig = { 
-                "FRAMEWORK_SEARCH_PATHS" => "$(PODS_ROOT)/MIAPay/Framework/",
-                "HEADER_SEARCH_PATHS" => "$($(PODS_ROOT))/MIAPay",
-                "LIBRARY_SEARCH_PATHS" => "$(PODS_ROOT)/MIAPay/Lib/"
-               }
   end
 end
