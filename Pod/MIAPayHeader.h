@@ -7,3 +7,5 @@
 //
 
 #import "MIAPay.h"
+#import "MIAAppPayDelegate.h"
+#import "MIAPayWebViewController.h"
