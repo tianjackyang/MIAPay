@@ -8,9 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MIAAppPayDelegate : UIResponder <UIApplicationDelegate>
+@interface MIAAppPayDelegate : NSObject <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
++(MIAAppPayDelegate*)sharePayDelegate;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions;
 

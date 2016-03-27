@@ -9,8 +9,17 @@
 #import "MIAAppPayDelegate.h"
 #import <AlipaySDK/AlipaySDK.h>
 
-@implementation MIAAppPayDelegate{
+static MIAAppPayDelegate *sharePayInstance = nil;
 
+@implementation MIAAppPayDelegate
+
++(MIAAppPayDelegate*)sharePayDelegate {
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharePayInstance = [[MIAAppPayDelegate alloc] init];
+    });
+    
+    return sharePayInstance;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
